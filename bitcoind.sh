@@ -2,6 +2,7 @@
 set -e
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+random_pw=$(dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64)
 
 # port 8333 is remote access
 # port 8332 is for local RPC
@@ -20,8 +21,11 @@ fi
         -p 127.0.0.1:8332:8332 \
         -e DISABLEWALLET=1 \
         -e PRINTTOCONSOLE=1 \
+        -e REST=1 \
+        -e SERVER=1 \
+        -e TXINDEX=1 \
         -e RPCUSER=btcrpc \
-        -e RPCPASSWORD=lol \
+        -e RPCPASSWORD=$random_pw \
         bitcoind
 
 echo "tailing logs file"
