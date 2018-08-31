@@ -16,6 +16,8 @@ txindex=${TXINDEX:-0}
 reindex=${TXINDEX:-0}
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
+maxconnections=${MAXCONNECTIONS:-25}
+maxuploadtarget=${MAXUPLOADTARGET:-0}
 EOF
 
 cat $HOME/.bitcoin/bitcoin.conf
