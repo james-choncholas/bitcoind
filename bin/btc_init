@@ -13,7 +13,6 @@ printtoconsole=${PRINTTOCONSOLE:-1}
 rest=${REST:-1}
 server=${SERVER:-1}
 txindex=${TXINDEX:-0}
-reindex=${TXINDEX:-0}
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 maxconnections=${MAXCONNECTIONS:-25}
