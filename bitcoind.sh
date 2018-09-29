@@ -33,3 +33,19 @@ sudo docker run -d \
 
 echo "tailing logs file"
 sudo docker logs -f bitcoind
+
+
+# To connect to the container:
+#sudo docker exec -it bitcoind bash -l
+# then you can run bitcoin-cli getconnectioncount or getblockchaininfo
+
+# To test the command line interface:
+#echo -e "\n\nTesting cli"
+#sudo docker exec bitcoind bitcoin-cli -rpcuser=btcrpc -rpcpassword=lol getconnectioncount
+
+# To test the RPC interface 
+#echo -e "\n\nTesting rpc"
+#curl -v --user btcrpc:lol \
+#    --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getinfo", "params": [] }' \
+#    -H 'content-type: text/plain;' \
+#    http://127.0.0.1:8332/
