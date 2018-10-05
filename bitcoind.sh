@@ -1,6 +1,14 @@
 #!/bin/bash
 set -e
 
+echo "Are you sure you want to start geth without 01Cnode to monitor?"
+read -p "Continue (y/n)?" choice
+case "$choice" in
+  y|Y ) ;;
+  n|N ) exit 0;;
+  * ) echo "invalid"; exit 0;;
+esac
+
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 random_pw=$(dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64)
 
